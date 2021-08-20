@@ -1,0 +1,13 @@
+let urls = [
+    "https://validurl",
+    "https://validurl",
+    "https://invalidurl"
+];
+let controller = new AbortController();
+Promise.all(urls.map(url => fetch(url))).then(responses => {
+    for(let response of responses) {
+        alert(response);
+    }
+}).catch(function(err){
+    alert("Error");
+});
